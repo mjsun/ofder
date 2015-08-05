@@ -1,0 +1,25 @@
+{
+  "name": "ofder",
+  "version": "1.0.0",
+  "description": "side project fsa",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mjsun/ofder.git"
+  },
+  "keywords": [
+    "office"
+  ],
+  "author": "mingjie sun",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mjsun/ofder/issues"
+  },
+  "homepage": "https://github.com/mjsun/ofder#readme",
+  "dependencies": {
+    "express": "^4.13.3"
+  }
+}
