@@ -1,0 +1,41 @@
+{% extends "layout.html" %}
+
+{% block content %}
+
+<div class="page-header">
+  <h1>Tweets <small>for {{user_name || display_name}}</small></h1>
+  {% if mode === 'SINGLE_USER' %}
+    <a href="/tweets">Back</a>
+  {% endif %}
+</div>
+<form class="well" method="POST" action="/tweets/submit/add">
+{% if mode === 'ALL_TWEETS' %}
+  <div class="input-group">
+    <label for="user_name">Name</label>
+    <input name="user_name" id="user_name" class="form-control" placeholder="Please enter your name." />
+  </div>
+{% endif %}
+{% if mode === 'SINGLE_USER' %}
+  <div class="input-group">
+    <label for="user_name">Name</label>
+    <input name="user_display_name" id="user_display_name" class="form-control" value="{{user_name}}" disabled />
+    <input name="user_name" id="user_name" value="{{user_name}}" style="display:none"/>
+  </div>
+{% endif %}
+  <div class="input-group">
+    <label for="tweet_text">Text</label>
+    <input name="tweet_text" id="tweet_text" class="form-control" placeholder="Please tweet." />
+  </div>
+  <button class="btn btn-primary" style="margin-top:5px" type="submit">Tweet!</button>
+</form>
+<ul class="list-group">
+  {% for tweet in tweets %}
+    <li class="list-group-item">
+      <div>
+        <a href="/tweets/{{tweet.name}}">{{ tweet.name }}</a></div>
+      <div>{{ tweet.text }}</div>
+    </li>
+  {% endfor %}
+</ul>
+
+{% endblock %}
