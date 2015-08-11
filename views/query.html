@@ -1,0 +1,17 @@
+{% extends "layout.html" %}
+
+{% block content %}
+	<h4>IMDB</h4>
+	<form class="form" method="POST" action="/sqlite3/q">
+		<div class="form-group">
+			<label for="query_text">Query: </label>
+			<textarea class="form-control" name="query_text" id="query_text">{{query}}</textarea>
+			<button class="btn btn-primary">Run</button>
+		</div>
+	</form>
+	<ul class="list-group">
+		{%  for result in results %}
+		<li class="list-group-item">{{ JSON.stringify(result)}}</li>
+		{%  endfor %}
+	</ul>
+{% endblock %}
