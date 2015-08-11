@@ -4,6 +4,8 @@ var morgan = require("morgan");
 var app = express();
 var bodyParser = require("body-parser");
 var twitterRoute = require("./route/tweet_route");
+var queryRoute = require("./route/query_route");
+
 
 app.engine("html", swig.renderFile);
 app.set("view engine", "html");
@@ -23,5 +25,7 @@ app.get('/', function(req, res){
 });
 
 app.use('/tweets', twitterRoute);
+
+app.use('/sqlite3', queryRoute);
 
 app.listen(3001); 
